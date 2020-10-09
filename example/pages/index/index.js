@@ -57,7 +57,7 @@ Page({
 				}
 				makeResponsive(false,'both',false,1);	
 				AdobeAn.compositionLoaded(lib.properties.id);
-				createjs.framerate = lib.properties.fps;
+				createjs.framerate = lib.properties.fps;//修改为新版本的设置方式
 				createjs.Ticker.addEventListener("tick", stage);
 			});
 		});

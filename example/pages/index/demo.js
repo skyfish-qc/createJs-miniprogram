@@ -574,7 +574,7 @@ p.nominalBounds = new cjs.Rectangle(-324.5,-240.5,640.3,414.9);
 		this.stop();
 		var self = this;
 		this.stage.addEventListener("stagemousedown",function(){
-			self.stage.removeEventListener("stagemousedown",this);
+			self.stage.removeEventListener("stagemousedown",this);//监听后移除，避免重复监听
 			self.play();
 		});
 	}

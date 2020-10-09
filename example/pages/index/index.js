@@ -57,7 +57,7 @@ Page({
 				}
 				makeResponsive(false,'both',false,1);	
 				AdobeAn.compositionLoaded(lib.properties.id);
-				createjs.Ticker.setFPS(lib.properties.fps);
+				createjs.framerate = lib.properties.fps;
 				createjs.Ticker.addEventListener("tick", stage);
 			});
 		});

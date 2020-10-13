@@ -19,10 +19,9 @@ Page({
 				var lib=comp.getLibrary();
 				var ss=comp.getSpriteSheet();
 				var exportRoot = new lib.demo();
-				var stage = new lib.Stage(canvas);
+				var stage = new createjs.Stage(canvas);
 				stage.addChild(exportRoot);
 				createjs.Touch.enable(stage);
-							
 				function makeResponsive(isResp, respDim, isScale, scaleType) {		
 					var lastW, lastH, lastS=1;
 					resizeCanvas();

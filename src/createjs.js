@@ -9143,9 +9143,7 @@ createjs.deprecate = function(fallbackMethod, name) {
 	 * @return {Boolean} Whether WebGL is enabled
 	 */
 	StageGL.isWebGLActive = function (ctx) {
-		return ctx &&
-			ctx instanceof WebGLRenderingContext &&
-			typeof WebGLRenderingContext !== 'undefined';
+		return true;
 	};
 
 // static properties:

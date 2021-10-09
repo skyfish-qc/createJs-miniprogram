@@ -22,6 +22,10 @@ Page({
 				var stage = new createjs.Stage(canvas);
 				stage.addChild(exportRoot);
 				createjs.Touch.enable(stage);
+                var head = new createjs.Bitmap("img/head.png"); 
+                head.y = 20;
+                stage.addChild(head); 
+                head.addEventListener('click', () => { console.log('点击了') });
 				function makeResponsive(isResp, respDim, isScale, scaleType) {		
 					var lastW, lastH, lastS=1;
 					resizeCanvas();

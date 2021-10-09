@@ -8381,7 +8381,16 @@ createjs.deprecate = function(fallbackMethod, name) {
 		var offX = (window.pageXOffset || document.scrollLeft || 0) - (document.clientLeft || document.body.clientLeft || 0);
 		var offY = (window.pageYOffset || document.scrollTop || 0) - (document.clientTop  || document.body.clientTop  || 0);
 
-		var styles = window.getComputedStyle ? getComputedStyle(e,null) : e.currentStyle; // IE <9 compatibility.
+		var styles = {
+            paddingLeft:0,
+            paddingTop:0,
+            paddingRight:0,
+            paddingBottom:0,
+            borderLeftWidth:0,
+            borderTopWidth:0,
+            borderRightWidth:0,
+            borderBottomWidth:0,
+        }
 		var padL = parseInt(styles.paddingLeft)+parseInt(styles.borderLeftWidth);
 		var padT = parseInt(styles.paddingTop)+parseInt(styles.borderTopWidth);
 		var padR = parseInt(styles.paddingRight)+parseInt(styles.borderRightWidth);

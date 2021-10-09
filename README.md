@@ -1,5 +1,7 @@
 createjs 小程序 的适配版本。
-
+---
+  - 2021.10.9 修复子元素事件触发不了的问题
+---
 ## 使用
 
 可参考 example 目录下的示例项目或参照以下流程：
@@ -34,6 +36,10 @@ Page({
 				stage.addChild(exportRoot);
 				createjs.Touch.enable(stage);
 							
+                var head = new createjs.Bitmap("img/head.png"); 
+                head.y = 20;
+                stage.addChild(head); 
+                head.addEventListener('click', () => { console.log('点击了') });
 				function makeResponsive(isResp, respDim, isScale, scaleType) {		
 					var lastW, lastH, lastS=1;
 					resizeCanvas();

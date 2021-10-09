@@ -11,9 +11,10 @@ Page({
 				var canvas = res[0].node;
 				var stageWidth = 750;//canvas宽度，跟小程序wxss指定的一样大小
 				var stageHeight = 1220;//canvas高度，跟小程序wxss指定的一样大小
+				createjs = createCreateJS(canvas,stageWidth,canvas2d);//传入canvas，传入canvas宽度，用于计算触摸坐标比例适配触摸位置
+                //要把缩放放到初始化引擎后面，否则会影响点击坐标的判断
 				canvas.width = stageWidth;
 				canvas.height = stageHeight;
-				createjs = createCreateJS(canvas,stageWidth,canvas2d);//传入canvas，传入canvas宽度，用于计算触摸坐标比例适配触摸位置
 				var stage = new createjs.StageGL(canvas);
 				createjs.Touch.enable(stage);
 				var pic = new createjs.Bitmap("img/bg.jpg");

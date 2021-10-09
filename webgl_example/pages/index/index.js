@@ -15,11 +15,16 @@ Page({
 				canvas.height = stageHeight;
 				createjs = createCreateJS(canvas,stageWidth,canvas2d);//传入canvas，传入canvas宽度，用于计算触摸坐标比例适配触摸位置
 				var stage = new createjs.StageGL(canvas);
+				createjs.Touch.enable(stage);
 				var pic = new createjs.Bitmap("img/bg.jpg");
 				stage.addChild(pic);
 				var head = new createjs.Bitmap("img/head.png");
 				head.y = 300;
-				stage.addChild(head);
+				stage.addChild(head);  
+                var head2 = new createjs.Bitmap("img/head.png"); 
+                head2.y = 20;
+                stage.addChild(head2); 
+                head2.addEventListener('click', () => { console.log('点击了') });
 				createjs.framerate = 30;
 				var dir = 1;
 				createjs.Ticker.addEventListener("tick", function(){

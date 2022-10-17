@@ -229,8 +229,8 @@ createjs.indexOf = function (array, searchElement){
 createjs.deprecate = function(fallbackMethod, name) {
 	"use strict";
 	return function() {
-		var msg = "Deprecated property or method '"+name+"'. See docs for info.";
-		console && (console.warn ? console.warn(msg) : console.log(msg));
+		// var msg = "Deprecated property or method '"+name+"'. See docs for info.";
+		// console && (console.warn ? console.warn(msg) : console.log(msg));
 		return fallbackMethod && fallbackMethod.apply(this, arguments);
 	}
 };
@@ -3403,7 +3403,6 @@ createjs.deprecate = function(fallbackMethod, name) {
 		if (data == null) { return; }
 
 		this.framerate = data.framerate||0;
-
 		// parse images:
 		if (data.images && (l=data.images.length) > 0) {
 			a = this._images = [];
@@ -10387,7 +10386,6 @@ createjs.deprecate = function(fallbackMethod, name) {
 	 */
 	p._loadTextureImage = function (gl, image) {
 		var src = image.src;
-
 		if (!src) {
 			// one time canvas property setup
 			image._isCanvas = true;
@@ -17040,32 +17038,16 @@ createjs.deprecate = function(fallbackMethod, name) {
 	}
 
 	s.appendToBody = function (el) {
-		if (s.container == null) {
-			s.container = document.createElement("div");
-			s.container.id = "preloadjs-container";
-			var style = s.container.style;
-			style.visibility = "hidden";
-			style.position = "absolute";
-			style.width = s.container.style.height = "10px";
-			style.overflow = "hidden";
-			style.transform = style.msTransform = style.webkitTransform = style.oTransform = "translate(-10px, -10px)"; //LM: Not working
-			s.getBody().appendChild(s.container);
-		}
-		s.container.appendChild(el);
+		
 	}
 
 	s.getHead = function () {
-		return document.head || document.getElementsByTagName("head")[0];
 	}
 
 	s.getBody = function () {
-		return document.body || document.getElementsByTagName("body")[0];
 	}
 
 	s.removeChild = function(el) {
-		if (el.parent) {
-			el.parent.removeChild(el);
-		}
 	}
 
 	/**
@@ -18171,9 +18153,9 @@ createjs.deprecate = function(fallbackMethod, name) {
 	 * @protected
 	 */
 	p._isCanceled = function () {
-		if (window.createjs == null || this.canceled) {
-			return true;
-		}
+		// if (window.createjs == null || this.canceled) {
+		// 	return true;
+		// }
 		return false;
 	};
 
@@ -20088,9 +20070,9 @@ createjs.deprecate = function(fallbackMethod, name) {
 	 * constructor, or a `path` property in a manifest definition.
 	 */
 	p.loadManifest = function (manifest, loadNow, basePath) {
+        
 		var fileList = null;
 		var path = null;
-
 		// Array-based list of items
 		if (Array.isArray(manifest)) {
 			if (manifest.length == 0) {
@@ -20467,7 +20449,6 @@ createjs.deprecate = function(fallbackMethod, name) {
 			this._sendLoadStart();
 			this._loadStartWasDispatched = true;
 		}
-
 		// The queue has completed.
 		if (this._numItems == this._numItemsLoaded) {
 			this.loaded = true;
